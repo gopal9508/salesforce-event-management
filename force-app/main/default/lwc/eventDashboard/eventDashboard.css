@@ -1,0 +1,65 @@
+.dashboard {
+    padding: 20px;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.summary-card {
+    padding: 20px;
+    border: 1px solid #d8dde6;
+    border-radius: 8px;
+    text-align: center;
+    background: #ffffff;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.card-value {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.section {
+    margin-top: 25px;
+}
+
+.section h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.event-table,
+.feedback-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.event-table th,
+.event-table td,
+.feedback-table th,
+.feedback-table td {
+    border: 1px solid #d8dde6;
+    padding: 12px;
+    text-align: left;
+}
+
+.event-table th,
+.feedback-table th {
+    font-weight: 600;
+    background: #f3f3f3;
+}
+
+.event-table tr:hover,
+.feedback-table tr:hover {
+    background: #f8f8f8;
+}

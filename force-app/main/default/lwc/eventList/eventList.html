@@ -1,0 +1,71 @@
+<template>
+
+    <lightning-card
+        title="Event List"
+        icon-name="standard:event">
+
+        <div class="event-list">
+
+            <template if:true={events.length}>
+
+                <table class="event-table">
+
+                    <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th>Date & Time</th>
+                            <th>Location</th>
+                            <th>Capacity</th>
+                            <th>Status</th>
+                            <th>Registrations</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <template
+                            for:each={events}
+                            for:item="event">
+
+                            <tr key={event.Id}>
+
+                                <td>{event.Name}</td>
+
+                                <td>
+                                    <lightning-formatted-date-time
+                                        value={event.Event_Date_Time__c}
+                                        year="numeric"
+                                        month="short"
+                                        day="2-digit"
+                                        hour="2-digit"
+                                        minute="2-digit">
+                                    </lightning-formatted-date-time>
+                                </td>
+
+                                <td>{event.Location__c}</td>
+
+                                <td>{event.Maximum_Capacity__c}</td>
+
+                                <td>{event.Status__c}</td>
+
+                                <td>{event.Total_Registrations__c}</td>
+
+                            </tr>
+
+                        </template>
+
+                    </tbody>
+
+                </table>
+
+            </template>
+
+            <template if:false={events.length}>
+                <p>No events found.</p>
+            </template>
+
+        </div>
+
+    </lightning-card>
+
+</template>

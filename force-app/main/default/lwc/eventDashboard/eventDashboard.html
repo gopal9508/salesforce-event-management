@@ -1,0 +1,136 @@
+<template>
+
+    <lightning-card title="Event Management Dashboard" icon-name="standard:event">
+
+        <div class="dashboard">
+
+            <!-- Summary Cards -->
+            <div class="summary-grid">
+
+                <div class="summary-card">
+                    <div class="card-title">Upcoming Events</div>
+                    <div class="card-value">{upcomingEvents}</div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="card-title">Total Registrations</div>
+                    <div class="card-value">{totalRegistrations}</div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="card-title">Total Attendees</div>
+                    <div class="card-value">{totalAttendees}</div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="card-title">Average Rating</div>
+                    <div class="card-value">
+                        {averageRating} ⭐
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Upcoming Events -->
+            <div class="section">
+
+                <h2>Upcoming Events</h2>
+
+                <template if:true={upcomingEventDetails.length}>
+
+                    <table class="event-table">
+
+                        <thead>
+                            <tr>
+                                <th>Event</th>
+                                <th>Date</th>
+                                <th>Registrations</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <template for:each={upcomingEventDetails} for:item="event">
+
+                                <tr key={event.eventId}>
+
+                                    <td>{event.eventName}</td>
+
+                                    <td>
+                                        <lightning-formatted-date-time
+                                            value={event.eventDate}
+                                            year="numeric"
+                                            month="short"
+                                            day="2-digit"
+                                            hour="2-digit"
+                                            minute="2-digit">
+                                        </lightning-formatted-date-time>
+                                    </td>
+
+                                    <td>{event.registrations}</td>
+
+                                </tr>
+
+                            </template>
+
+                        </tbody>
+
+                    </table>
+
+                </template>
+
+                <template if:false={upcomingEventDetails.length}>
+                    <p>No upcoming events found.</p>
+                </template>
+
+            </div>
+
+
+            <!-- Feedback Summary -->
+            <div class="section">
+
+                <h2>Feedback Summary</h2>
+
+                <template if:true={feedbackSummary.length}>
+
+                    <table class="feedback-table">
+
+                        <thead>
+                            <tr>
+                                <th>Rating</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <template for:each={feedbackSummary} for:item="feedback">
+
+                                <tr key={feedback.rating}>
+
+                                    <td>{feedback.stars}</td>
+
+                                    <td>{feedback.count}</td>
+
+                                </tr>
+
+                            </template>
+
+                        </tbody>
+
+                    </table>
+
+                </template>
+
+                <template if:false={feedbackSummary.length}>
+                    <p>No feedback available.</p>
+                </template>
+
+            </div>
+
+        </div>
+
+    </lightning-card>
+
+</template>

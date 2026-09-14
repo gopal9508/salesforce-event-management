@@ -1,0 +1,95 @@
+<template>
+
+    <lightning-card
+        title="Event Registration"
+        icon-name="standard:event">
+
+        <div class="registration-form">
+
+            <!-- Event -->
+            <lightning-combobox
+                name="event"
+                label="Event"
+                placeholder="Select an Event"
+                options={eventOptions}
+                value={eventId}
+                onchange={handleEventChange}
+                required>
+            </lightning-combobox>
+
+            <!-- Contact -->
+            <lightning-combobox
+                name="contact"
+                label="Contact"
+                placeholder="Select a Contact"
+                options={contactOptions}
+                value={contactId}
+                onchange={handleContactChange}
+                required>
+            </lightning-combobox>
+
+            <!-- Registration Date -->
+            <lightning-input
+                type="datetime"
+                name="registrationDate"
+                label="Registration Date"
+                value={registrationDate}
+                onchange={handleDateChange}
+                required>
+            </lightning-input>
+
+            <!-- Status -->
+            <lightning-combobox
+                name="status"
+                label="Status"
+                value={status}
+                options={statusOptions}
+                onchange={handleStatusChange}>
+            </lightning-combobox>
+
+            <!-- Payment Status -->
+            <lightning-combobox
+                name="paymentStatus"
+                label="Payment Status"
+                value={paymentStatus}
+                options={paymentStatusOptions}
+                onchange={handlePaymentStatusChange}>
+            </lightning-combobox>
+
+            <!-- Register Button -->
+            <div class="button-container">
+
+                <lightning-button
+                    variant="brand"
+                    label="Register"
+                    onclick={handleRegister}>
+                </lightning-button>
+
+            </div>
+
+            <!-- Pay Now Button -->
+            <template if:true={registrationId}>
+
+                <div class="button-container">
+
+                    <lightning-button
+                        variant="success"
+                        label="Pay Now"
+                        onclick={handlePayment}>
+                    </lightning-button>
+
+                </div>
+
+                <!-- Payment Status -->
+                <div class="payment-message">
+                    Payment Status:
+                    <strong>{paymentStatus}</strong>
+                </div>
+
+            </template>
+
+        </div>
+
+    </lightning-card>
+
+</template>

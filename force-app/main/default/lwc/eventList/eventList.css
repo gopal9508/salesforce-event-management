@@ -1,0 +1,25 @@
+.event-list {
+    padding: 20px;
+}
+
+.event-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.event-table th,
+.event-table td {
+    border: 1px solid #d8dde6;
+    padding: 12px;
+    text-align: left;
+}
+
+.event-table th {
+    font-weight: 600;
+    background: #f3f3f3;
+}
+
+.event-table tr:hover {
+    background: #f8f8f8;
+}

@@ -1,0 +1,56 @@
+<template>
+
+    <lightning-card
+        title="Submit Feedback"
+        icon-name="standard:feedback">
+
+        <div class="feedback-form">
+
+            <!-- Registration -->
+            <lightning-combobox
+                name="registration"
+                label="Registration"
+                placeholder="Select your Registration"
+                options={registrationOptions}
+                value={registrationId}
+                onchange={handleRegistrationChange}
+                required>
+            </lightning-combobox>
+
+            <!-- Rating -->
+            <lightning-combobox
+                name="rating"
+                label="Rating"
+                placeholder="Select Rating"
+                options={ratingOptions}
+                value={rating}
+                onchange={handleRatingChange}
+                required>
+            </lightning-combobox>
+
+            <!-- Comments -->
+            <lightning-textarea
+                name="comments"
+                label="Comments"
+                placeholder="Enter your feedback"
+                value={comments}
+                onchange={handleCommentsChange}
+                required>
+            </lightning-textarea>
+
+            <!-- Submit Button -->
+            <div class="button-container">
+
+                <lightning-button
+                    variant="brand"
+                    label="Submit Feedback"
+                    onclick={handleSubmit}>
+                </lightning-button>
+
+            </div>
+
+        </div>
+
+    </lightning-card>
+
+</template>
